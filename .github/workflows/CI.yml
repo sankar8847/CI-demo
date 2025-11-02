@@ -24,3 +24,15 @@ jobs:
 
       - name: Run the tests
         run: pytest -v
+
+      - name: package application
+        run: |
+          mkdir bulid
+          cp app.py bulid/
+          echo "Build complete!"
+
+      - name: Upload Artifact
+        uses: action/upload-artifact@v4
+        with:
+          name: python-app
+          path: build/
